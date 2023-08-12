@@ -1,0 +1,64 @@
+AIRPORT_ID,AIRPORT,AIRPORT_NAME,AIRPORT_CITY,AIRPORT_STATE,LAT_DEGREES,LAT_HEMISPHERE,LAT_MINUTES,LAT_SECONDS,LATITUDE,LON_DEGREES,LON_HEMISPHERE,LON_MINUTES,LON_SECONDS,LONGITUDE
+10010,2 Chainz,College Park,Georgia,United States,33.0,N,39.0,7.0,33.65194444,84.0,W,27.0,58.0,-84.01611111
+10011,21 Savage,Atlanta,Georgia,United States,33.0,N,44.0,47.0,33.74638889,84.0,W,21.0,45.0,-84.3625
+10012,50 Cent,Queens,New York,United States,40.0,N,38.0,50.0,40.64722222,73.0,W,46.0,36.0,-73.77777778
+10013,6ix9ine,Brooklyn,New York,United States,40.0,N,39.0,38.0,40.66055556,73.0,W,56.0,16.0,-73.93777778
+10014,Aesop Rock,Portland,Oregon,United States,45.0,N,30.0,16.0,45.50444444,122.0,W,24.0,30.0,-122.5083333
+10015,Afrika Bambaataa,The Bronx,New York,United States,40.0,N,49.0,36.0,40.82666667,73.0,W,54.0,36.0,-73.91000000
+10016,Afroman,Palmdale,California,United States,34.0,N,35.0,13.0,34.58694444,118.0,W,5.0,10.0,-118.08611111
+10017,Akon,Jersey City,New Jersey,United States,40.0,N,43.0,44.0,40.72888889,74.0,W,4.0,23.0,-74.07333333
+10018,Akinyele (rapper),Queens,New York,United States,40.0,N,42.0,46.0,40.71277778,74.0,W,43.0,48.0,-74.72999999
+10019,Anderson .Paak,Oxnard,California,United States,34.0,N,11.0,13.0,34.18722222,119.0,W,11.0,53.0,-119.1980556
+10020,André 3000,Atlanta,Georgia,United States,33.0,N,45.0,55.0,33.76527778,84.0,W,21.0,29.0,-84.35805556
+10021,Azealia Banks,Harlem,New York,United States,40.0,N,49.0,32.0,40.82555556,73.0,W,56.0,28.0,-73.94111111
+10022,ASAP Rocky,Harlem,New York,United States,40.0,N,48.0,48.0,40.81333333,73.0,W,56.0,10.0,-73.93666667
+10023,Awkwafina,Forest Hills,Queens,New York,United States,40.0,N,43.0,54.0,40.73166667,73.0,W,50.0,30.0,-73.84166667
+10024,AZ (rapper),Brooklyn,New York,United States,40.0,N,39.0,21.0,40.65611111,73.0,W,59.0,17.0,-73.98805556
+10025,Azealia Banks,Harlem,New York,United States,40.0,N,49.0,32.0,40.82555556,73.0,W,56.0,28.0,-73.94111111
+10026,B-Legit,Vallejo,California,United States,38.0,N,6.0,43.0,38.11222222,122.0,W,15.0,49.0,-122.1136111
+10027,B-Real,South Gate,California,United States,33.0,N,56.0,50.0,33.94722222,118.0,W,11.0,43.0,-118.1952778
+10028,B.G. (rapper),New Orleans,Louisiana,United States,29.0,N,57.0,34.0,29.95944444,90.0,W,4.0,1.0,-90.06777778
+10029,B.G. Knocc Out,Compton,California,United States,33.0,N,53.0,16.0,33.88777778,118.0,W,14.0,16.0,-118.2377778
+10030,B.o.B,Decatur,Georgia,United States,33.0,N,44.0,15.0,33.73750000,84.0,W,17.0,41.0,-84.29472222
+10031,Bad Azz (rapper),Long Beach,California,United States,33.0,N,49.0,37.0,33.82694444,118.0,W,11.0,51.0,-118.1972222
+10032,Beanie Sigel,South Philadelphia,Pennsylvania,United States,39.0,N,55.0,44.0,39.92888889,75.0,W,9.0,45.0,-75.01222222
+10033,Beastie Boys,New York City,New York,United States,40.0,N,42.0,52.0,40.71444444,74.0,W,0.0,44.0,-74.01222222
+10034,Big Daddy Kane,Brooklyn,New York,United States,40.0,N,40.0,41.0,40.67805556,73.0,W,57.0,42.0,-73.96166667
+10035,Big L,Harlem,New York,United States,40.0,N,48.0,31.0,40.80861111,73.0,W,56.0,39.0,-73.94416667
+10036,Big K.R.I.T.,Meridian,Mississippi,United States,32.0,N,22.0,33.0,32.37583333,88.0,W,41.0,3.0,-88.68361111
+10037,Big Kuntry King,Atlanta,Georgia,United States,33.0,N,44.0,46.0,33.74611111,84.0,W,24.0,25.0,-84.74027778
+10038,Big Lurch,Dallas,Texas,United States,32.0,N,43.0,43.0,32.72861111,96.0,W,45.0,20.0,-96.72861111
+10039,Big Mello,Houston,Texas,United States,29.0,N,46.0,57.0,29.78250000,95.0,W,16.0,22.0,-95.77388889
+10040,Big Mike (rapper),New Orleans,Louisiana,United States,29.0,N,57.0,40.0,29.96111111,90.0,W,4.0,9.0,-90.06944444
+10041,Big Moe,Houston,Texas,United States,29.0,N,40.0,38.0,29.67722222,95.0,W,21.0,30.0,-95.35833333
+10042,Big Noyd,Queensbridge,New York,United States,40.0,N,45.0,29.0,40.75805556,73.0,W,57.0,50.0,-73.96388889
+10043,Big Pokey,Houston,Texas,United States,29.0,N,48.0,3.0,29.80083333,95.0,W,22.0,32.0,-95.40833333
+10044,Big Pooh,Virginia Beach,Virginia,United States,36.0,N,50.0,9.0,36.83583333,76.0,W,5.0,55.0,-76.09805556
+10045,Big Pun,The Bronx,New York,United States,40.0,N,50.0,32.0,40.84222222,73.0,W,56.0,44.0,-73.94555556
+10046,Big Rube,Atlanta,Georgia,United States,33.0,N,42.0,18.0,33.70500000,84.0,W,26.0,18.0,-84.43833333
+10047,Big Scarr,Memphis,Tennessee,United States,35.0,N,2.0,53.0,35.04805556,90.0,W,1.0,54.0,-90.03138889
+10048,Big Scoob,Kansas City,Missouri,United States,39.0,N,3.0,50.0,39.06388889,94.0,W,33.0,33.0,-94.05916667
+10049,Big Sean,Detroit,Michigan,United States,42.0,N,20.0,57.0,42.34916667,83.0,W,3.0,5.0,-83.05138889
+10050,Big Shug,Boston,Massachusetts,United States,42.0,N,19.0,12.0,42.32000000,71.0,W,4.0,33.0,-71.34250000
+10051,Big Smo,Unionville,Tennessee,United States,35.0,N,34.0,46.0,35.57944444,86.0,W,17.0,28.0,-86.29111111
+10052,Big Syke,Inglewood,California,United States,33.0,N,56.0,4.0,33.93444444,118.0,W,21.0,50.0,-118.3633333
+10053,Birdman (rapper),New Orleans,Louisiana,United States,29.0,N,58.0,34.0,29.97611111,90.0,W,4.0,6.0,-90.06833333
+10054,Bishop Lamont,Carson,California,United States,33.0,N,49.0,33.0,33.82583333,118.0,W,16.0,14.0,-118.2705556
+10055,Biz Markie,Harlem,New York,United States,40.0,N,48.0,39.0,40.81083333,73.0,W,56.0,15.0,-73.93750000
+10056,Bizarre (rapper),Detroit,Michigan,United States,42.0,N,20.0,58.0,42.34944444,83.0,W,2.0,36.0,-83.04333333
+10057,Bizzy Bone,Columbus,Ohio,United States,39.0,N,57.0,0.0,39.95000000,83.0,W,0.0,1.0,-83.00000000
+10058,Bizzy Crook,Miami,Florida,United States,25.0,N,46.0,48.0,25.77999999,80.0,W,11.0,18.0,-80.77166667
+10059,Blaq Poet,Queens,New York,United States,40.0,N,41.0,25.0,40.69027778,73.0,W,47.0,13.0,-73.78694444
+10060,Blaze Ya Dead Homie,Romeo,Michigan,United States,42.0,N,46.0,22.0,42.77277778,82.0,W,57.0,19.0,-82.95555556
+10061,Blu (rapper),Los Angeles,California,United States,34.0,N,5.0,27.0,34.09083333,118.0,W,16.0,16.0,-118.2713889
+10062,Blueface,Los Angeles,California,United States,34.0,N,4.0,53.0,34.08138889,118.0,W,15.0,13.0,-118.2530556
+10063,Blxst,Los Angeles,California,United States,34.0,N,0.0,41.0,34.01138889,118.0,W,17.0,33.0,-118.2925000
+10064,Bobby Brackins,Oakland,California,United States,37.0,N,48.0,11.0,37.80305556,122.0,W,15.0,12.0,-122.7863889
+10065,Bobby Creekwater,Atlanta,Georgia,United States,33.0,N,45.0,58.0,33.76611111,84.0,W,23.0,25.0,-84.39027778
+10066,Bobby Shmurda,Brooklyn,New York,United States,40.0,N,42.0,48.0,40.71333333,73.0,W,56.0,14.0,-73.93666667
+10067,Boosie Badazz,Baton Rouge,Louisiana,United States,30.0,N,27.0,0.0,30.45,91.0,W,10.0,46.0,-91.17944444
+10068,Bow Wow (rapper),Columbus,Ohio,United States,39.0,N,57.0,0.0,39.95,83.0,W,0.0,0.0,-83.00000000
+10069,BRS Kash,Atlanta,Georgia,United States,33.0,N,46.0,50.0,33.78055556,84.0,W,25.0,47.0,-84.42916667
+10070,Bubba Sparxxx,LaGrange,Georgia,United States,33.0,N,1.0,48.0,33.03,84.0,W,59.0,18.0,-84.98833333
+10071,Buckshot (rapper),Brooklyn,New York,United States,40.0,N,40.0,40.0,40.67777778,73.0,W,57.0,41.0,-73.96138889
+10072,Buckwild (music producer),Bronx,New York,United States,40.0,N,50.0,18.0,40.83833333,73.0,W,49.0,8.0,-73.81833333

@@ -1,0 +1,58 @@
+I just ran this and it did not work
+
+<html> 
+    <body> 
+        <script src="https://d3js.org/d3.v6.min.js"></script>
+        <div>
+            <canvas>
+                
+            </canvas>
+            <p></p>
+        </div>
+        <script>
+           var data = {  
+                "nodes": [ 
+                    {
+                    "name": "Parent 1" 
+                    }, 
+                    {      
+                    "name": "Child 1"      
+                    },    
+                    {
+                    "name": "Child 2"   
+                    }
+                ],
+                "links": [
+                    {
+                    "source": "Parent 1",
+                    "target": "Child 1"        
+                    }, 
+                    {       
+                    "source": "Parent 1",
+                    "target": "Child 2"
+                    }
+                ]
+                }  
+                        
+            var width = 600, height = 400;
+              
+            var svg = d3.select("p")
+              .append("svg")
+              .attr("width", width)
+              .attr("height", height);  
+              
+            var node = svg.selectAll(".node")
+               .data(data.nodes)
+               .enter()
+               .append("circle")
+               .attr("r", 10)
+               .attr("fill", "green");  
+              
+            var link = svg.selectAll(".link")
+               .data(data.links)
+               .enter()
+               .append("line")
+               .attr("stroke", "gray");     
+          </script>  
+          </body>
+          </html>

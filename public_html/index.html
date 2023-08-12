@@ -1,0 +1,2059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with JohnDoe landing page.">
+    <meta name="author" content="Devcrud">
+    <title>Sam Cooks | Hip Hop</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- Bootstrap + JohnDoe main styles -->
+	<link rel="stylesheet" href="assets/css/johndoe.css">
+    <link rel="stylesheet" href="assets/css/samcooks.css">
+    <link rel="stylesheet" href="assets/css/scripticus.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js" integrity="sha512-M7nHCiNUOwFt6Us3r8alutZLm9qMt4s9951uo8jqO4UwJ1hziseL6O3ndFyigx6+LREfZqnhHxYjKRJ8ZQ69DQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/canvg/1.5/canvg.min.js"></script>
+
+    
+    <script src="assets/js/script.js"></script>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <!-- https://favicon.io/favicon-converter/ -->
+</head>
+<script>
+    function loadJsonData() {
+      fetch('connecthow.json')
+        .then(response => response.json())
+        .then(jsonData => {
+          let select = document.getElementById("nodeDropdown");
+          let perky = document.getElementById("perky");
+    
+          // Populate select options
+          jsonData.forEach(function(item, index) {
+            let option = document.createElement("option");
+            option.text = item.name;
+            option.value = index; // Store the index as the value
+            select.add(option);
+          });
+    
+          // Initial summary text
+          if (jsonData.length > 0) {
+            perky.innerHTML = "";
+          }
+    
+          // Update summary text on select change
+        select.addEventListener("change", function() {
+            let selectedName = select.value.split(".").slice(-1)[0]; // gets the last element of the split array
+            let matchingIndex = jsonData.findIndex(obj => obj.name === selectedName); // finds the index of the matching object
+            if (matchingIndex >= 0) { // If a matching object is found
+            let selectedSummary = jsonData[matchingIndex].summary; // retrieves the corresponding summary
+            perky.innerHTML = selectedSummary;
+            } else { // If no matching object is found
+            perky.innerHTML = "No matching summary found.";
+            }
+        });
+  
+    })};
+    </script>
+    <body  data-spy="scroll" data-target=".navbar" data-offset="40" id="home" onload="loadJsonData()">
+        <a href="components.html" class="btn btn-primary btn-component" data-spy="affix" data-offset-top="600"><i class="ti-shift-left-alt"></i> Components</a>
+
+        <style>
+            /* pir p.i.r. paint it red */
+            .pir {
+                color: red;
+                font-weight: bold;
+            }
+        </style>
+        <header class="header">
+            <div class="container">
+                <ul class="social-icons pt-3">
+                    <img src="/assets/imgs/logo.png" alt="Logo" class="logo-img" style="width: 120px;">
+                </ul>  
+                <div class="header-content">
+                    <h4 class="header-subtitle" >Hello, I am</h4>
+                    <h1 class="header-title">Sam Cooks </h1>
+                    <h6 class="header-mono" >The Website for Socially Conscious | Culturally Significant <i><b><font size=6>hip hop</font> </b></i></h6>
+                    <!-- <input class="btn btn-primary btn-rounded" itemid="artist" list="rappers" id="artist" onfocus="this.select(); this.value=''" oninput="displaySongs(); updatePortfolio(this.value);"  style="min-width: 330px; color: black;" placeholder="Pick an artist.."> -->
+                    <input class="btn btn-primary btn-rounded" itemid="artist" list="rappers" id="artist" onfocus="this.select(); this.value=''" oninput="displaySongs();"  style="min-width: 330px; color: black;" placeholder="Pick an artist..">
+                    
+                    <datalist id="rappers">
+                    </datalist>
+                    <script> 
+                        let rappersList = document.getElementById("rappers"); 
+                        cons_sams_artista.sam_artists.forEach(artist => { 
+                            let option = document.createElement("option"); 
+                            option.value = artist.Artist; 
+                            rappersList.appendChild(option); 
+                            }); 
+                    </script>
+                    <br>
+                    <br>
+                    <input class="form-control" type="text" id="search" onkeyup="filterSongs()" placeholder="Type to search titles..." style="width: 230px; color: green;">
+                </div>
+            </div>
+        </header>
+        <h2 id="selectedArtist" class="selected-artist fontRight" style="padding-right: 10%; text-align: right"></h2>
+         
+        <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white" data-spy="affix" data-offset-top="510">
+            <div class="container">
+    
+                <!--This is hte initial button for printing-->
+                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse mt-sm-20 navbar-collapse" id="navbarSupportedContent" style="line-height: 0.5em">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a href="#home" class="nav-link">Home|Selector</a> <!--Home-->
+                        </li>
+                        <li class="nav-item">
+                            <a href="#about" class="nav-link">Songs</a> <!--Songs-->
+                        </li>
+                        <li class="nav-item">
+                            <a href="#resume" class="nav-link">Key Search</a> <!--Resume-->
+                        </li>
+                        <li class="nav-item">
+                            <a href="#stats" class="nav-link">Stats</a> <!--Resume-->
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav brand">
+                        <img src="assets/imgs/avatar.jpg" alt="" class="brand-img">
+                        <li class="brand-txt">
+                            <h5 class="brand-title"><img src="/assets/imgs/logo.png" alt="Logo" class="logo-img" style="width: 120px;"></h5>
+                            <div class="brand-subtitle"><span><font size=4px>S</font></span><span><font size=4px>C</font></span> <span style="color: lightblue; font-weight:18px;"><b>|</b></span> <span class="mirror" ><font size=4px>C</font></span><span class="mirror"><font size=4px>S</font></span></div>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#services" class="nav-link">Philosophy</a> <!--Portfolio-->
+                        </li>
+                        <li class="nav-item">
+                            <a href="#portfolio" class="nav-link">Old|New</a> <!--Portfolio-->
+                        </li>
+                        <li class="nav-item">
+                            <a href="#blog" class="nav-link">The Battle</a>
+                        </li>
+                        <li class="nav-item last-item">
+                            <a href="#contact" class="nav-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- THIS MAKES THE SUBMENU ITEM DISAPPEAR AFTER CLICKED -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var dropdownItems = document.querySelectorAll('.dropdown-item');
+                for (var i = 0; i < dropdownItems.length; i++) {
+                dropdownItems[i].addEventListener('click', function() {
+                    var dropdownMenu = this.closest('.dropdown-menu');
+                    dropdownMenu.classList.remove('show');
+                });
+                }
+            });
+        </script>
+
+        <style>
+        #songtable {
+            margin-right: 3%;
+            margin-left: 3%;
+        }
+
+        .table.table-bordered ::placeholder {
+            color: white;
+          }
+
+        .form-control {
+            color: green;
+        }
+
+        .table-responsive {
+            height: 400px;
+        }
+
+        .ofy {
+            
+            width: 94%;
+            height: 100px;
+            overflow-y: scroll;
+        }
+
+        /* Sticky Header Styles */
+        .song-sticky-header {
+            position: sticky;
+            top: 0;
+            background-color: #f8f9fa;
+        }
+
+        .song-sticky-header th {
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+
+        /* Centered Table Styles */
+        .centered-table {
+            margin-left: 5px;
+            margin-right: 5px;
+            display: flex;
+            justify-content: center;
+        }
+
+        #randochart {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* .dropdown-menu-horizontal {
+            display: flex;
+            flex-direction: row;
+            top: 100%;
+            left: 0;
+            min-width: 10rem;
+          } */
+        
+         /* .dropdown-item {
+            display: block;
+            width: 100%;
+          }  */
+
+        /* Lyrics List */
+        .lyrics-container {
+            height: 300px;
+            overflow-y: auto    ;
+          }
+          
+          .lyrics-container ul {
+            list-style-type: none;
+            padding-left: 0;
+          }
+          
+          .lyrics-container li {
+            margin-bottom: 10px;
+          }
+          
+          .lyrics-container a {
+            display: block;
+            text-decoration: none;
+          }
+
+
+
+          /*   
+           .andale-overlay
+
+          */
+          /* Lyrics List */
+        /* .andale-overlay {
+            height: 300px;
+            overflow-y: scroll;
+          }
+          
+          .andale-overlay ul {
+            list-style-type: none;
+            padding-left: 0;
+          }
+          
+          .andale-overlay li {
+            margin-bottom: 10px;
+          }
+          
+          .andale-overlay a {
+            display: block;
+            text-decoration: none;
+          } */
+
+          #bigblue {
+            height: 400px;
+            overflow-y: auto;
+          }
+
+          .bigblue {
+            margin-right: 20px;
+            margin-left: 20px;
+          }
+
+          .andale-overlay {
+            height: 300px;
+            overflow-y: auto; 
+            }
+
+            .andale-overlay ul {
+            list-style-type: none;
+            padding-left: 0;
+            }
+
+            .andale-overlay li {
+            margin-bottom: 10px;
+            }  
+
+            .andale-overlay a {
+            display: block;  
+            text-decoration: none;   
+            }
+          
+          .embed-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+          }
+          
+          .embed-container iframe,
+          .embed-container object,
+          .embed-container embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
+          
+          
+
+          /* rakim */
+          #rakim {
+            background-image: url('assets/imgs/ther.jpg');
+            /* Additional background properties can be added if needed */
+          }
+
+          #resume {
+            background-image: url('assets/imgs/lh.jpg');
+            
+
+
+          }
+
+          #artist::placeholder {
+            color: white; 
+        }
+          
+        /*
+            RESEARCH AREA
+        */
+        #researchdivcard {
+        opacity: 0.95; /* 70% transparent */
+        }
+
+
+
+        /* 
+            statistics area
+        */
+
+
+        .bothlightdark {
+            text-shadow: 2px 2px 1px #000;
+            filter: drop-shadow(2px 2px 1px #000);  
+            color: #fff;
+        }
+
+        .mirror{
+            display: inline-block; 
+            font-size: 30px;
+        
+            -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
+            -moz-transform: matrix(-1, 0, 0, 1, 0, 0);
+            -o-transform: matrix(-1, 0, 0, 1, 0, 0);
+            transform: matrix(-1, 0, 0, 1, 0, 0);
+        }
+
+    </style>
+
+        <section class="section" id="about">
+            <div class="container-fluid">
+                <h1 class="mb-5"><span class="text-danger">The</span> Bio, <span class="text-danger">The</span> Songs</h1> <!--About-->
+                <div id="about" class="row about-section" style="padding-left: 20px;">
+                    <div class="col-lg-5 about-card">
+                        <h3 class="font-weight-light" style="margin-bottom: 0.2rem;">Bio</h3>
+                        <span class="line mb-5"></span>
+                        <div id="divybiobag" class="andale-overlay">
+                            <div id="lowerbody">
+                                <div>
+                                    <main id="biodata">
+                                    </main>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 about-card" style="padding-left: 40px;padding-right: 20px;">
+                        <h3 class="font-weight-light">Songs</h3>
+                        <span class="line mb-5"></span>
+                        <div id="divvysonglist" class="andale-overlay">
+                        
+                        <main id="mainSongList">
+                            <ul id="songList" class="centered"></ul>
+                        </main>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col-lg-3 about-card" style="padding-left: 20px;">
+                        <div class="container">
+                            <h3 class="font-weight-light">Lyrics</h3> <!-- My Expertise-->
+                            <span class="line mb-5"></span>
+                            <div id="lyricsdiv" class="lyrics-container">
+                                <ul id="lyricsSongList"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="forBlueOverlay">
+                <main id="songtable" style="background-color: #ADD8E6">
+                </main>
+                </div> 
+            </div>
+        </section>
+        
+
+        <!--Resume Section-->
+        <section class="section" id="resume">
+            <div class="container">
+                    
+                <h2 class="mb-5 bothlightdark"><span class="text-danger">The</span> Keys, <span class="text-danger">The</span> Search</h2> <!--Resume-->
+                <!-- <label id="keysearchLabel" for="keysearch" class="fontLeft" style="display: none;">Search songs by Keywords:</label> -->
+                <input type="text" class="form-control" id="keysearch" onkeyup="filterKeywords()" placeholder="Type to search keywords..." style="width: 230px; background-color: lightgray;">
+                <br>
+
+                <div class="row">
+                    <div class="col-md-6 col-lg-12">
+                        <div id="researchdivcard" class="card">
+                        <div class="card-header">
+                                <div class="mt-1">
+                                    <h4>Research</h4> 
+                                    <span class="line"></span>  
+                                </div>
+                            </div>
+
+                            <div class="card-body andale-overlay" style="opacity: 70%;">
+                                <main id="kwsmainSongList">
+                                    <ul id="kwssongList" class="centered"></ul>
+                                </main>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <div>
+                                <main class="table table-bordered" id="kwssongtable">
+                                    <ul id="kwssongList" class="centered"></ul>
+                                </main>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- <section id="thedropdowneight"> 
+            <div class="cardib"> Card 1 </div> 
+            <div class="cardib"> Card 2 </div> 
+            <div class="cardib"> Card 3 </div> 
+            <div class="cardib"> Card 4 </div> 
+            <div class="cardib"> Card 5 </div> 
+            <div class="cardib"> Card 6 </div> 
+            <div class="cardib"> Card 7 </div> 
+            <div class="cardib"> Card 8 </div> 
+        </section>  -->
+
+        <section id="giveemspace" style="margin-top: 10%;">
+
+        </section>
+
+        <section id="thedropdowneight" > 
+            <div id="baremceesdiv">
+                <div class="cardib"> MC 1 
+                    <input class="small-btn btn-primary cardibinput" itemid="artist" list="rappers" id="artist1" style="color: white" placeholder="Pick an artist.."> 
+                    <datalist id="rappers"> 
+                    </datalist> 
+                </div> 
+                <div class="cardib"> MC 2 
+                    <input class="small-btn btn-primary cardibinput" itemid="artist" list="rappers" onchange="changeMC2(this.value, 2);" id="artist2" autocomplete="off" style="color: white" placeholder="Pick an artist.."> 
+                    <datalist id="rappers2"> 
+                    </datalist> 
+                </div> 
+                <div class="cardib"> MC 3
+                    <input class="small-btn btn-primary cardibinput" itemid="artist" list="rappers" onchange="changeMC2(this.value, 3);"  id="artist3" style="color: white" placeholder="Pick an artist.."> 
+                    <datalist id="rappers3"> 
+                    </datalist> 
+                </div> 
+                <div class="cardib"> MC 4
+                    <input class="small-btn btn-primary cardibinput" itemid="artist" list="rappers" onchange="changeMC2(this.value, 4);"  id="artist4" style="color: white" placeholder="Pick an artist.."> 
+                    <datalist id="rappers4"> 
+                    </datalist> 
+                </div> 
+                <div class="cardib"> MC 5
+                    <input class="small-btn btn-primary  cardibinput" itemid="artist" list="rappers" onchange="changeMC2(this.value, 5);"  id="artist5" style="color: white" placeholder="Pick an artist.."> 
+                    <datalist id="rappers5"> 
+                    </datalist> 
+                </div> 
+                <div class="cardib"> MC 6
+                    <input class="small-btn btn-primary cardibinput" itemid="artist" list="rappers" onchange="changeMC2(this.value, 6);"  id="artist6" style="color: white" placeholder="Pick an artist.."> 
+                    <datalist id="rappers6"> 
+                    </datalist> 
+                </div> 
+                <div class="cardib"> MC 7
+                    <input class="small-btn btn-primary cardibinput" itemid="artist" list="rappers" onchange="changeMC2(this.value, 7);"  id="artist7" style="color: white" placeholder="Pick an artist.."> 
+                    <datalist id="rappers7"> 
+                    </datalist> 
+                </div> 
+                <div class="cardib"> MC 8 
+                    <input class="small-btn btn-primary cardibinput" itemid="artist" list="rappers" onchange="changeMC2(this.value, 8);"  id="artist8" style="color: white" placeholder="Pick an artist.."> 
+                    <datalist id="rappers8"> 
+                    </datalist> 
+                </div>
+            </div> 
+        </section>
+
+        <style> 
+            .small-btn { 
+                width: 80%; 
+    
+            } 
+        </style>
+    
+    
+    
+    
+        <style>
+            .cardib { 
+            width: 12.5%; /* 100% / 8 cards */ 
+            float: left; 
+            text-align: center;
+        } 
+        /* style="min-width: 120px; color: black;" */
+        .cardibinput {
+            min-width: 120px;
+            color: black;
+        }
+    
+        </style>
+
+        <style> 
+            section#thedropdowneight { 
+                background-color: gray !important; 
+            } 
+        </style>
+
+        <br>
+
+        <!-- the following p tag has to stay for the chart to exist-->
+        <p>CHART SECTION</p><br>
+
+        <section id="chartsection">
+            <div class="container-fluid" style="padding-bottom: 20px;">
+                <div  class="row about-section">
+                    <div class="col-lg-3 about-card">
+                        <h3 class="font-weight-light"></h3>
+                        <span class="line mb-5"></span>
+    
+                            <div class="container" id="chartcooks">
+                                hello
+                                <canvas id="canvascooks" width="500px" height="500px"></canvas>
+                            </div>
+    
+                    </div>
+                    <div class="col-lg-5 about-card">
+                        <h3 class="font-weight-light">Cooks and Keys</h3>
+                        <span class="line mb-5"></span>
+    
+    
+                        <div id="chartcooksandkeys">
+                            <canvas id="canvascooksandkeys" width="200px" height="200px"></canvas>
+                        </div>
+    
+                    </div>
+                    <div class="col-lg-4 about-card">
+                        <h3 class="font-weight-light"></h3>
+                        <span class="line mb-5"></span>
+    
+    
+                            <div id="chartkeys">
+                                <canvas id="canvaskeys" width="200px" height="200px">
+
+                                </canvas>
+                                <div id="showsonginfo">
+                                    <p id="pshowsonginfo"></p>
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> 
+
+
+        <!-- <section id="hbsection">
+        <canvas id="hier">
+
+        </canvas>
+        <script>
+            
+        </script>
+        </section> -->
+
+        <br>
+        <section id="chartsect">
+            <div id="randochart">
+            
+            
+            </div>
+        
+        
+        </section>
+
+        <br><br>
+        <section class="section" id="stats" style="padding-bottom: 5px; padding-left: 20px; margin-bottom: 5px;">
+            <h2 class="mb-5 pb-4" style="padding-bottom: 5px; margin-bottom: 5px;" ><span class="text-danger">The</span> Stats</h2>
+        </section>
+        
+        <section id="rakim" class="section text-center">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="row ">
+                            <div class="col-5 text-right text-light border-right py-3">
+                                <div class="m-auto"><i class="ti-folder icon-xl"></i></div>
+                            </div>
+                            <div class="col-7 text-left py-3">
+                                <h1 id= "artistsdatabased" class="text-danger font-weight-bold font40 bothlightdark">500</h1>
+                                <p class="text-light mb-1 bothlightdark">Artists <br><br>databased</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3"> 
+                        <div class="row">
+                            <div class="col-5 text-right text-light border-right py-3">
+                                <div class="m-auto"><i class="ti-layers-alt icon-xl"></i></div>
+                            </div>
+                            <div class="col-7 text-left py-3">
+                                <h1 id="songscatalogued" class="text-danger font-weight-bold font40 bothlightdark">50K</h1>
+                                <p class="text-light mb-1 bothlightdark">Songs <br><br>Catalogued</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="row">
+                            <div class="col-5 text-right text-light border-right py-3">
+                                <div class="m-auto"><i class="ti-key icon-xl"></i></div>
+                            </div>
+                            <div class="col-7 text-left py-3">
+                                <h1 id="generatedkeywords" class="text-danger font-weight-bold font40 bothlightdark">200K</h1>
+                                <p class="text-light mb-1 bothlightdark">Keywords <br><br>Generated</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="row">
+                            <div class="col-5 text-right text-light border-right py-3">
+                                <div class="m-auto"><i class="ti-map icon-xl"></i></div>
+                            </div>
+                            <div class="col-7 text-left py-3">
+                                <h1 id="ewns" class="text-danger font-weight-bold font40 bothlightdark">e w n s</h1>
+                                <p id="eastwestnorthsouth" class="text-light mb-1 bothlightdark">Coffee Drinked</p>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+    
+                <!-- <div class="row text-center">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="row ">
+                            <div class="col-5 text-right text-light border-right py-3">
+                                <div class="m-auto"><i class="ti-alarm-clock icon-xl"></i></div>
+                            </div>
+                            <div class="col-7 text-left py-3">
+                                <h1 class="text-danger font-weight-bold font40">500</h1>
+                                <p class="text-light mb-1">Hours Worked</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="row">
+                            <div class="col-5 text-right text-light border-right py-3">
+                                <div class="m-auto"><i class="ti-layers-alt icon-xl"></i></div>
+                            </div>
+                            <div class="col-7 text-left py-3">
+                                <h1 class="text-danger font-weight-bold font40">50K</h1>
+                                <p class="text-light mb-1">Project Finished</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="row">
+                            <div class="col-5 text-right text-light border-right py-3">
+                                <div class="m-auto"><i class="ti-face-smile icon-xl"></i></div>
+                            </div>
+                            <div class="col-7 text-left py-3">
+                                <h1 class="text-danger font-weight-bold font40">200K</h1>
+                                <p class="text-light mb-1">Happy Clients</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="row">
+                            <div class="col-5 text-right text-light border-right py-3">
+                                <div class="m-auto"><i class="ti-heart-broken icon-xl"></i></div>
+                            </div>
+                            <div class="col-7 text-left py-3">
+                                <h1 class="text-danger font-weight-bold font40">2k</h1>
+                                <p class="text-light mb-1">Coffee Drinked</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+
+        <section class="section" id="services">
+            <div class="container">
+                <h2 class="mb-5 pb-4"><span class="text-danger">The</span> Philosophy</h2> <!--Services-->
+                <div class="row">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card mb-5">
+                           <div class="card-header has-icon">
+                                <i class="ti-vector text-danger" aria-hidden="true"></i>
+                            </div>
+                            <div class="card-body px-4 py-3">
+                                <h5 class="mb-3 card-title text-dark">Socially Conscious</h5>
+                                <P class="subtitle">Songs that address and raise awareness about social issues, injustices, or challenges in society. They aim to provoke thought, inspire action, or promote empathy and understanding. These songs often tackle topics such as racism, poverty, war, gender inequality, environmental issues, and other pressing concerns. Artists use their platform to shed light on these issues and encourage listeners to engage with them on a deeper level.</P>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card mb-5">
+                           <div class="card-header has-icon">
+                                <i class="ti-write text-danger" aria-hidden="true"></i>
+                            </div>
+                            <div class="card-body px-4 py-3">
+                                <h5 class="mb-3 card-title text-dark">Culturally Significant</h5>
+                                <P class="subtitle">Songs that hold a broader significance within a particular culture or community. These songs may reflect the values, traditions, history, or collective experiences of a specific group of people. They often serve as a form of cultural expression, preserving and celebrating cultural heritage. Culturally significant songs can range from folk songs that have been passed down through generations to anthems that symbolize a nation or movement.</P>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card mb-5">
+                           <div class="card-header has-icon">
+                                <i class="ti-package text-danger" aria-hidden="true"></i>
+                            </div>
+                            <div class="card-body px-4 py-3">
+                                <h5 class="mb-3 card-title text-dark">SC vs. CS</h5>
+                                <P class="subtitle">socially conscious songs focus on raising awareness and advocating for social change, while culturally significant songs hold particular importance within a specific culture or community. However, many songs can embody both aspects, addressing social issues within a cultural context, making the distinction between the two sometimes blurred.</P>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card mb-5">
+                           <div class="card-header has-icon">
+                                <i class="ti-map-alt text-danger" aria-hidden="true"></i>
+                            </div>
+                            <div class="card-body px-4 py-3">
+                                <h5 class="mb-3 card-title text-dark">Sam Cooke</h5> <!-- Provident -->
+                                <P class="subtitle">In the movie "One Night in Miami," directed by Regina King, there is a scene where Malcolm X engages in a conversation with Sam Cooke at the Miami Hotel. The dialogue explores the responsibilities of influential Black artists and their role in addressing the struggles of the African American community during the civil rights movement. </P>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card mb-5">
+                           <div class="card-header has-icon">
+                                <i class="ti-bar-chart text-danger" aria-hidden="true"></i>
+                            </div>
+                            <div class="card-body px-4 py-3">
+                                <h5 class="mb-3 card-title text-dark">Sam Cooks</h5>
+                                <P class="subtitle">The website "Sam Cooks" is a clever play on words, combining the name "Sam" with the concept of cooking. It implies a culinary focus for the site. Additionally, the slang catchphrase "let'm cook" adds a double entendre, connecting to the website's name and implying both the literal act of cooking and the idea of allowing individuals to excel in their chosen field without interference.</P>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="card mb-5">
+                           <div class="card-header has-icon">
+                                <i class="ti-support text-danger" aria-hidden="true"></i>
+                            </div>
+                            <div class="card-body px-4 py-3">
+                                <h5 class="mb-3 card-title text-dark">Qualification</h5>
+                                <p class="subtitle">What qualifies as a Sam Cook?</p>
+                                <ul>
+                                    <li>Has to be at least SC or CS</li>
+                                    <li>If it is a song with mostly braggadocio it has to have at least some CS|SC  powerful message</li>
+                                    <li>Has to teach some valuable lesson</li>
+                                </ul>
+                            </div>
+    
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+
+        <section class="section bg-custom-gray bigblue" id="allsongs">
+            <!-- <div class="search-container" style="margin: 20px;">
+                <label for="searchInput">Search:</label>
+                <input type="text" id="searchInput" placeholder="Enter keywords to search...">
+                <label for="searchModeAll">All Words:</label>
+                <input type="radio" id="searchModeAll" name="searchMode" value="all" checked>
+                <label for="searchModeAny">Any Word:</label>
+                <input type="radio" id="searchModeAny" name="searchMode" value="any">
+            </div> -->
+    
+    
+            <div id="searchContainer" style="margin-bottom: 20px;">
+                <input class="form-control" type="text" id="searchBox" placeholder="Search..." />
+                <label>
+                  <input type="radio" name="searchType" value="all" checked /> All Words
+                </label>
+                <label>
+                  <input type="radio" name="searchType" value="any" /> Any Word
+                </label>
+                <span style="margin-left: 10px;">Rows Visible: <span id="rowCount">0</span></span>
+              </div>
+              
+            
+            <div id="bigblue">
+                <div class="table-responsive centered-table">
+                    <table class="table table-bordered table-striped ofy" id="songTable">
+                      <thead class="song-sticky-header">
+                        <tr>
+                          <th>
+                            <a class="sort-btn btn btn-primary btn-lg active" style="background-color: white; color: black; border-color: white;" data-sort-key="artist" role="button"><font size=3><b>Artist</b></font></a>
+                          </th>
+                          <th>
+                            <a class="sort-btn btn btn-primary btn-lg active" style="background-color: white; color: black; border-color: white;" data-sort-key="Song" role="button"><font size=3><b>Song</b></font></a>
+                          </th>
+                          <th>
+                              <a class="sort-btn btn btn-primary btn-lg active" style="background-color: white; color: black; border-color: white;" data-sort-key="Reason of Selection" role="button"><font size=3><b>Reason of Selection</b></font></a>
+                          </th>
+                          <th>
+                              <a class="sort-btn btn btn-primary btn-lg active" style="background-color: white; color: black; border-color: white;" data-sort-key="Socially Conscious" role="button"><font size=3><b>Socially Conscious</b></font></a>
+                          </th>
+                          <th>
+                              <a class="sort-btn btn btn-primary btn-lg active" style="background-color: white; color: black; border-color: white;" data-sort-key="Culturally Significant" role="button"><font size=3><b>Culturally Significant</b></font></a>
+                          </th>
+                          <th>
+                            Keywords
+                          </th>
+                          <th>
+                              <a class="sort-btn btn btn-primary btn-lg active" style="background-color: white; color: black; border-color: white;" data-sort-key="Overall Theme" role="button"><font size=3><b>Overall Theme</b></font></a>
+                          </th>
+                          <th>
+                            Linked Lyrics
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody id="songTableBody">
+                        <!-- Table rows will be dynamically generated here -->
+                      </tbody>
+                    </table>
+    
+            </div>
+    
+    
+          </section>
+
+
+          <div style="margin-left: 5%;">
+            Note: <i>click white boxed headers to change sort order</i>
+        </div>
+    
+        <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    
+    
+    
+    
+    
+    
+        <style>
+            .chart {
+              width: 100%;
+              height: 100%;
+            }
+        </style>
+    
+        <!-- <section class="section bg-custom-gray" id="thischart">
+    
+            <div class="container" style="margin: 20px; padding: 10px;">
+                <div id="myChart"></div>
+                </div>
+        </section> -->
+
+
+        <section class="section" id="hiergraphb">
+            <h2 class="mb-5 pb-4 herky"><span class="text-danger">The</span> Connections</h2> <!--Services-->
+    
+    
+            <div style="display: flex;">
+                <!-- Graph container -->
+                <div id="graphContainer" style="flex: 1;">
+    
+                    <div>
+                        <p id="pisfree"></p>
+                    </div>
+    
+                </div>
+                
+                <!-- Textbox or table container -->
+                <!-- <div id="jsonSelector" style="flex: 0 0 auto; padding: 10px; height: 100px;">
+                    <input type="radio" id="Flare" name="data" value="Flare" checked onclick="loadData(this.value)">
+                    <label for="Flare">Flare</label>
+                    <input type="radio" id="FlareKeys" name="data" value="FlareKeys" onclick="loadData(this.value)">
+                    <label for="FlareKeys">Flare Keys</label>
+                </div> -->
+                <!-- <div id="legend" style="padding: 10px; height: 100px;"> -->
+                    <!-- Legend will be added here -->
+                <!-- </div> -->
+                
+                
+    
+    
+                 
+    
+                    
+                <div id="textboxContainer" style="background-color: lightblue; flex: 1; padding: 10px;">
+                <div id="intheblue">
+                    <datalist id="rappersb">
+                    </datalist>
+                    <select id="nodeDropdown"></select>
+                    <!-- <button id="downloadButton">Download</button> -->
+                    <button id="btn-Convert-Html2Image" onclick="downloadSvg()">Download</button>
+                    <!-- Add zoom slider and recenter button -->
+                    <input type="range" min="0.1" max="10.0" step="0.01" value="0.5" id="zoomSlider">
+                    <button id="recenterButton">Recenter</button>
+    
+    
+                    <!-- Your textbox or table content goes here -->
+                  <!-- For example, you can add a textbox like this -->
+                        
+                  <p id="perky">This is the textbox content.</p>
+                  </div>
+                </div>
+              </div>
+    
+    
+    
+        </section>
+
+        <script>
+            function loadData(value) {
+                var legendText = "";
+                
+                if (value === "Flare") {
+                    legendText = "<b>Legend:</b><br>" +
+                                 "<span style='color:red'>Red Connectors:</span> Represent artists who borrowed from the blue highlighted artists.<br>" +
+                                 "<span style='color:green'>Green Connectors:</span> Represent artists who the blue highlighted artist borrowed from.";
+                } else if (value === "FlareKeys") {
+                    legendText = "<b>Legend:</b><br>" +
+                                 "<span style='color:red'>Red Connectors:</span> Represent artists who used the idea after the highlighted blue artist.<br>" +
+                                 "<span style='color:green'>Green Connectors:</span> Represent the artist highlighted in blue who used the concept after the target artists.";
+                }
+            
+                document.getElementById('legend').innerHTML = legendText;
+            }
+            
+            // Call the function on page load to set the initial legend
+            loadData('Flare');
+            
+        </script>
+
+
+        <style>
+
+            #intheblue {
+    
+                margin-left: 10px;
+                margin-top: 10px;
+    
+                padding-top: 20px;
+                padding-left: 20px;
+            }
+    
+    
+            #perky {
+                margin-left: 5px;
+                margin-top: 10px;
+    
+                font-weight: 700;
+    
+                font-size: larger;
+                padding-left: 5px;
+                padding-right: 20px;
+            }
+    
+            .herky {
+                margin-left: 60px;
+            }
+    
+            #textboxContainer {
+                margin-right: 50px;
+                margin-top: 250px;
+                margin-bottom: 20px;
+    
+                height: 500px;
+                max-width: 500px;
+    
+                padding: 25px;
+            }
+
+            .link {
+              fill: none;
+              stroke: #ccc;
+              stroke-width: 1.5px;
+            }
+        
+            .node {
+              font: 10px sans-serif;
+            }
+        
+            .link--target-active {
+              stroke: #ff0000; 
+            }
+        
+            .link--source-active {
+              /* stroke: #00ff00; */
+              stroke: #00ff99; 
+            }
+        
+            .connected {
+              font-weight: bold; /* Make the connecting words bold */
+            }
+        
+            .selected-node {
+              fill: blue; /* This color can be changed according to your preference */
+            }
+    
+            svg {
+                background-color: white;
+            }
+            
+        </style>
+
+        <script>
+
+            var diameter = 920,
+                radius = diameter / 2,
+                innerRadius = radius - 120;
+            
+            var cluster = d3.cluster()
+                .size([360, innerRadius]);
+            
+            var line = d3.radialLine()
+                .curve(d3.curveBundle.beta(0.85))
+                .radius(function(d) { return d.y; })
+                .angle(function(d) { return d.x / 180 * Math.PI; });
+            
+            var svg = d3.select("#pisfree").append("svg")
+                .attr("width", diameter + 100)
+                .attr("height", diameter + 100)
+              .append("g")
+                .attr("transform", "translate(" + radius + "," + radius + ")");
+            
+            var zoom = d3.zoom()
+                .scaleExtent([1, 12])
+                .on("zoom", zoomed);
+            
+            svg.call(zoom);
+            
+            var g = svg.append("g");
+            
+            var node, link;
+            var selectedNode = null;
+        
+            
+            
+            d3.json("flare.json", function(error, classes) {
+              if (error) throw error;
+            
+              var root = packageHierarchy(classes)
+                  .sum(function(d) { return d.size; });
+            
+              cluster(root);
+            
+              link = g.append("g")
+                .selectAll(".link")
+                .data(packageImports(root.leaves()))
+                .enter().append("path")
+                .each(function(d) { d.source = d[0], d.target = d[d.length - 1]; })
+                .attr("class", "link")
+                .attr("d", line)
+                .style("stroke-width", 3);
+            
+              node = g.append("g")
+                .selectAll(".node")
+                .data(root.leaves())
+                .enter().append("text")
+                .attr("class", "node")
+                .attr("dy", "0.31em")
+                .attr("transform", function(d) { return "rotate(" + (d.x - 90) + ")translate(" + (d.y + 8) + ",0)" + (d.x < 180 ? "" : "rotate(180)"); })
+                .attr("text-anchor", function(d) { return d.x < 180 ? "start" : "end"; })
+                .text(function(d) { return d.data.key; })
+                .on("mouseover", mouseovered)
+                .on("mouseout", mouseouted)
+                .on("click", clicked);
+        
+        
+                // Populate dropdown
+                const dropdown = d3.select('#nodeDropdown');
+                dropdown.selectAll('option')
+                    .data(root.leaves())
+                    .enter()
+                    .append('option')
+                    .text(d => d.data.key)
+                    .attr('value', d => d.data.name);
+        
+        
+        
+                // Attach change event handler to dropdown
+                dropdown.on('change', function() {
+                    const nodeName = d3.select(this).property('value');
+                    const nodeData = root.leaves().find(d => d.data.name === nodeName);
+                    if (nodeData) clicked(nodeData);
+                });
+        
+                // Attach click event handler to download button
+                d3.select('#btn-Convert-Html2Image').on('click', downloadSVG);
+        
+                
+        
+            }); // end of d3json
+        
+        
+            // Access the slider and the recenter button
+            const zoomSlider = document.getElementById('zoomSlider');
+            const recenterButton = document.getElementById('recenterButton');
+        
+            // Define the zoom and translate values
+            let currentZoom = 0.5;
+            let currentTranslate = [0, 0];
+        
+            // Attach an input event handler to the slider
+            zoomSlider.addEventListener('input', function(e) {
+                currentZoom = +this.value;
+                svg.call(zoom.transform, d3.zoomIdentity.translate(currentTranslate[0], currentTranslate[1]).scale(currentZoom));
+            });
+        
+            // Attach a click event handler to the recenter button
+            recenterButton.addEventListener('click', function(e) {
+                currentTranslate = [0, 0];
+                svg.call(zoom.transform, d3.zoomIdentity.translate(currentTranslate[0], currentTranslate[1]).scale(currentZoom));
+            });
+        
+            // Update the zoom and translate values in the zoom handler
+            function zoomed() {
+                currentZoom = d3.event.transform.k;
+                currentTranslate = [d3.event.transform.x, d3.event.transform.y];
+                g.attr("transform", d3.event.transform);
+            }
+        
+            
+            function zoomed() {
+              g.attr("transform", d3.event.transform);
+            }
+            
+            function mouseovered(d) {
+              node.each(function(n) { n.target = n.source = false; });
+            
+              link.classed("link--target-active", function(l) { if (l.target === d) return l.source.source = true; })
+                .classed("link--source-active", function(l) { if (l.source === d) return l.target.target = true; })
+                .filter(function(l) { return l.target === d || l.source === d; })
+                .raise();
+            
+              node.classed("connected", function(n) { return n.target || n.source; });
+            }
+            
+            function mouseouted(d) {
+              if (d !== selectedNode) {
+                link.classed("link--target-active", false)
+                    .classed("link--source-active", false);
+                node.classed("connected", false);
+              }
+            }
+        
+        
+            // Define a function that updates the summary text based on the selected option
+            function updateSummary() {
+                let selectedName = select.value.split(".").slice(-1)[0]; // gets the last element of the split array
+                let matchingIndex = jsonData.findIndex(obj => obj.name === selectedName); // finds the index of the matching object
+                if (matchingIndex >= 0) { // If a matching object is found
+                    let selectedSummary = jsonData[matchingIndex].summary; // retrieves the corresponding summary
+                    perky.innerHTML = selectedSummary;
+                } else { // If no matching object is found
+                    perky.innerHTML = "No matching summary found.";
+                }
+            }
+        
+        
+        
+            // Update summary text on select change
+            select.addEventListener("change", updateSummary);
+        
+            
+            function clicked(d) {
+              if (selectedNode) {
+                node.classed('selected-node', false);
+                mouseouted(selectedNode);
+              }
+            
+              selectedNode = d;
+              node.classed('selected-node', function(n) { return n === d; });
+              mouseovered(d);
+        
+              // Update dropdown selection
+              d3.select('#nodeDropdown').property('value', d.data.name);
+        
+              // Update summary text
+                updateSummary();
+            }
+            
+            function packageHierarchy(classes) {
+              var map = {};
+            
+              function find(name, data) {
+                var node = map[name], i;
+                if (!node) {
+                  node = map[name] = data || {name: name, children: []};
+                  if (name.length) {
+                    node.parent = find(name.substring(0, i = name.lastIndexOf(".")));
+                    node.parent.children.push(node);
+                    node.key = name.substring(i + 1);
+                  }
+                }
+                return node;
+              }
+            
+              classes.forEach(function(d) {
+                find(d.name, d);
+              });
+            
+              return d3.hierarchy(map[""]);
+            }
+            
+            function packageImports(nodes) {
+              var map = {},
+                  imports = [];
+            
+              nodes.forEach(function(d) {
+                map[d.data.name] = d;
+              });
+            
+              nodes.forEach(function(d) {
+                if (d.data.imports) d.data.imports.forEach(function(i) {
+                  imports.push(map[d.data.name].path(map[i]));
+                });
+              });
+            
+              return imports;
+            }
+        
+        
+        
+            function downloadSVG() {
+                var svgNode = d3.select("svg").node();
+                var svgData = new XMLSerializer().serializeToString(svgNode);
+            
+                var canvas = document.createElement("canvas");
+                // Using canvg library to draw SVG on Canvas
+                canvg(canvas, svgData);
+                var svgUrl = canvas.toDataURL("image/png");
+            
+                var downloadLink = document.createElement("a");
+                downloadLink.href = svgUrl;
+                downloadLink.download = "newesttree.png";
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+            }
+        
+        
+        
+            // // ugly but downloaded
+            // function downloadSvg() {
+            //     var svg = document.querySelector('svg');
+            //     var serializer = new XMLSerializer();
+            //     var svgBlob = new Blob([serializer.serializeToString(svg)], {'type': 'image/svg+xml'});
+            //     var url = URL.createObjectURL(svgBlob);
+            //     var downloadLink = document.createElement("a");
+            //     downloadLink.href = url;
+            //     downloadLink.download = 'graph.svg';
+            //     downloadLink.click();
+            // }
+        
+        
+            
+            </script>
+
+
+                    <!-- Portfolio Section -->
+        <section class="section bg-custom-gray" id="portfolioa">
+            <div class="container">
+                <h1 class="mb-5"><span class="text-danger">The</span> Old, <span class="text-danger">The</span> New</h1> 
+                <div class="portfolio">
+                    <div class="filters">
+                        <a href="#" data-filter=".new" class="active">
+                            1980s .eighties
+                        </a>
+                        <a href="#" data-filter=".advertising">
+                            1990s .nineties
+                        </a>
+                        <a href="#" data-filter=".branding">
+                            2000s .twokays
+                        </a>
+                        <a href="#" data-filter=".web">
+                            2010+ .twotenplus
+                        </a>
+                    </div>
+
+
+                        <div class="portfolio-container"> 
+                            <div class="col-md-6 col-lg-4 advertising new">
+                                <a href="https://www.blackpast.org/african-american-history/groups-organizations-african-american-history/run-d-m-c/" target="_blank">
+                                    <div class="portfolio-item">
+                                        <img src="assets/imgs/rundmc2.png" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
+                                        <div class="content-holder">
+                                            <div class="text-holder">
+                                                <h6 class="title">Run DMC</h6>
+                                                <p class="subtitle">Proud To Be Black, Hard Times</p>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </a> 
+                            </div>
+                        <div class="col-md-6 col-lg-4 web new">
+                            <a href="https://app.discotech.me/articles/best-mos-def-songs-of-all-time-top-tracks" target="_blank">
+                                <div class="portfolio-item">
+                                    <img src="assets/imgs/mosdef.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
+                                    <div class="content-holder">
+                                        <div class="text-holder">
+                                            <h6 class="title">Mos Def</h6>
+                                            <p class="subtitle">Fear Not of Man</p>
+                                        </div>
+                                    </div> 
+                            </div>
+                        </a>                         
+                        </div>
+                        <div class="col-md-6 col-lg-4 new">
+                            <a href="https://www.1001albumclub.com/episodes/498-grandmaster-flash-the-furious-five-the-message/" target="_blank">
+                            <div class="portfolio-item">
+                                <img src="assets/imgs/Grandmaster-Flash-and-the-Furious-Five.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">                         
+                                <div class="content-holder">
+                                    <div class="text-holder">
+                                        <h6 class="title">Grand Master Flash and the Furious Five</h6>
+                                        <p class="subtitle">The Message, White Lines</p>
+                                    </div>
+                                </div>    
+                            </div>
+                        </a>              
+                        </div> 
+                        <div class="col-md-6 col-lg-4 advertising branding web">
+                            <a href="https://www.bloomberg.com/news/articles/2020-09-10/kanye-west-calls-out-gap-adidas-over-black-board-seats#xj4y7vzkg" target="_blank">
+                            <div class="portfolio-item">
+                                <img src="assets/imgs/kanyewest.jpeg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">
+                                <div class="content-holder">
+                                    <div class="text-holder">
+                                        <h6 class="title">Kanye West (Ye)</h6>
+                                        <p class="subtitle">Jesus Walks</p>
+                                    </div>
+                                </div>
+                            </div> 
+                        </a>                                                    
+                        </div>
+                        <div class="col-md-6 col-lg-4 advertising branding web"> 
+                            <a href="https://theshaderoom.com/celebrity-lil-wayne/" target="_blank">
+                            <div class="portfolio-item">
+                                <img src="assets/imgs/lilwayne.jpeg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">                               
+                                <div class="content-holder">
+                                    <div class="text-holder">
+                                        <h6 class="title">Lil Wayne</h6>
+                                        <p class="subtitle">Open Letter</p>
+                                    </div>
+                                </div>
+                            </div> 
+                        </a>                                                      
+                        </div> 
+                        <div class="col-md-6 col-lg-4 web advertising new">
+                            <a href="https://www.reddit.com/r/OldSchoolCool/comments/ru8bch/krsone_and_dj_scott_la_rock_1987/" target="_blank">
+                            <div class="portfolio-item">
+                                <img src="assets/imgs/krs-one.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">  
+                               <div class="content-holder">
+                                    <div class="text-holder">
+                                        <h6 class="title">KRS-One</h6>
+                                        <p class="subtitle">You Must Learn, Black Cop</p>
+                                    </div>
+                                </div>
+                            </div>  
+                            </a>                                                   
+                        </div>
+                        <div class="col-md-6 col-lg-4 advertising">
+                            <a href="https://www.liveabout.com/greatest-90s-rappers-2857965" target="_blank">
+                            <div class="portfolio-item">
+                                <img src="assets/imgs/lauryn-hill.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">       
+                               <div class="content-holder">
+                                    <div class="text-holder">
+                                        <h6 class="title">Lauryn Hill</h6>
+                                        <p class="subtitle">Every Ghetto Every City</p>
+                                    </div>
+                                </div>
+                            </div>                                                       
+                        </a>
+                        </div> 
+                        <div class="col-md-6 col-lg-4 advertising branding"> 
+                            <a href="https://www.dazeddigital.com/music/article/18622/1/common-beef-rhymes-and-life" target="_blank">
+                            <div class="portfolio-item">
+                                <img src="assets/imgs/common.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">            
+                                <div class="content-holder">
+                                    <div class="text-holder">
+                                        <h6 class="title">Common</h6>
+                                        <p class="subtitle">Letter to the Free, Testify</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        </div> 
+                        <div class="col-md-6 col-lg-4 branding advertising web">
+                            <a href="https://www.theguardian.com/music/musicblog/2014/nov/26/wu-tang-clan-10-of-the-best" target="_blank">
+                            <div class="portfolio-item">
+                                <img src="assets/imgs/wutangclan.jpeg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">                        
+                                <div class="content-holder">
+                                    <!-- <a class="img-popup" href="assets/imgs/branding-1.jpg"></a> -->
+                                    <div class="text-holder">
+                                        <h6 class="title">Wu-Tang Clan</h6>
+                                        <p class="subtitle">C.R.E.A.M.</p>
+                                    </div>
+                                </div> 
+                            </div>
+                        </a>
+                        </div> 
+                        <div class="col-md-6 col-lg-4 new">
+                            <a href="https://magicbaltimore.com/3321575/my-fav-80s-original-female-rappers/" target="_blank">
+                            <div class="portfolio-item">
+                                <img src="assets/imgs/lyte.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">  
+                                <div class="content-holder">
+                                    <!-- <a class="img-popup" href="assets/imgs/branding-2.jpg"></a> -->
+                                    <div class="text-holder">
+                                        <h6 class="title">M.C. Lyte</h6>
+                                        <p class="subtitle">Cram to Understand You</p>
+                                    </div>
+                                </div>
+                            </div> 
+                        </a>                                                    
+                        </div> 
+                        <div class="col-md-6 col-lg-4 branding web">
+                            <a href="https://twitter.com/Johnlaban256/status/1554187188245512194?t=QdjeTppmEoSVViU1FCD3SQ&s=03" target="_blank">
+                            <div class="portfolio-item">
+                                <img src="assets/imgs/jcole.jpeg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">   
+                                <div class="content-holder">
+                                    <!-- <a class="img-popup" href="assets/imgs/branding-3.jpg"></a> -->
+                                    <div class="text-holder">
+                                        <h6 class="title">J-Cole</h6>
+                                        <p class="subtitle">Lost Ones</p>
+                                    </div>
+                                </div>
+                            </div>  
+                        </a>                                                  
+                        </div> 
+                        <div class="col-md-6 col-lg-4 web">
+                            <a href="https://www.redbubble.com/i/iphone-case/Joyner-Lucas-Cartoon-Album-Cover-by-eastonhanson/60511032.B3ZQH" target="_blank">
+                            <div class="portfolio-item">
+                                <img src="assets/imgs/joynerlucas.jpeg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">                      
+                                <div class="content-holder">
+                                    <div class="text-holder">
+                                        <h6 class="title">Joyner Lucas</h6>
+                                        <p class="subtitle">I'm Not Racist</p>
+                                    </div>
+                                </div>
+                            </div> 
+                            </a>                                                     
+                        </div> 
+                        <div class="col-md-6 col-lg-4 new advertising">
+                            <a href="https://lasvegasweekly.com/ae/music/2018/apr/26/iconic-rapper-rakim-talks-reuniting-with-eric-b/" target="_blank">
+                            <div class="portfolio-item">
+                                <img src="assets/imgs/ericbandrakim.jpg" class="img-fluid" alt="Download free bootstrap 4 admin dashboard, free boootstrap 4 templates">          
+                                <div class="content-holder">
+                                    <div class="text-holder">
+                                        <h6 class="title" style="color: white">Eric B & Rakim</h6>
+                                        <p class="subtitle">Expedita corporis doloremque velit in totam!</p>
+                                    </div>
+                                
+                                </div>
+                            </div> 
+                        </a>                                                  
+                        </div>
+                    </div> 
+                </div>  
+            </div>            
+        </section>
+        <!-- End of portfolio section -->
+
+
+        
+
+            <!-- BLOG LATEST NEWS-->
+            <style>
+                .chatitup {
+                    height: 500px;
+                    overflow-y: auto;
+                }
+            </style>
+    <section class="section" id="blog">
+        <div class="container">
+            <h2 class="mb-5">The <span class="text-danger">Battle</span></h2>
+
+            <input type="text" id="search" placeholder="Search artists..." style="margin-bottom: 20px;">
+
+            
+
+            <div class="chatitup">
+                <div class="row" id="blogCards">
+                    <div class="blog-card" data-title="21 Savage">
+                        <div class="img-holder">
+                            <img src="assets/imgs/2010+/21 Savage.jpg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                        </div>
+                        <div class="content-holder">
+                            <h4 class="title">21 Savage</h6>
+                            <h5>A lot</h5>
+
+                            <p class="post-details">
+                                <a href="#">By: Admin</a>
+                                <a href="#"><i class="ti-heart text-danger"></i> 234</a>
+                                <a href="#"><i class="ti-comment"></i> 123</a>
+                            </p>
+                            
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet nesciunt qui sit velit delectus voluptates, repellat ipsum culpa id deleniti. Rerum debitis facilis accusantium neque numquam mollitia modi quasi distinctio.</p>
+
+                            <p><b>Necessitatibus nihil impedit! Ex nisi eveniet, dolor aliquid consequuntur repudiandae.</b></p>
+                            <p>Magnam in repellat enim harum omnis aperiam! Explicabo illo, commodi, dolor blanditiis cupiditate harum nisi vero accusamus laudantium voluptatibus dolores quae obcaecati.</p>
+
+                            <a href="#" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
+                        </div>
+                    </div><!-- end of blog wrapper -->
+
+                    <!-- blog-card -->
+                    <div class="blog-card" data-title="Biz Markie">
+                        <div class="img-holder">
+                            <img src="assets/imgs/1980s/biz-markie.jpg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                        </div>
+                        <div class="content-holder">
+                            <h4 class="title">Biz Markie</h6>
+
+                            <p class="post-details">
+                                <a href="#">By: Admin</a>
+                                <a href="#"><i class="ti-heart text-danger"></i> 456</a>
+                                <a href="#"><i class="ti-comment"></i> 264</a>
+                            </p>
+                            
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit excepturi laborum enim, vitae ipsam atque eum, ad iusto consequuntur voluptas, esse doloribus. Perferendis porro quisquam vitae exercitationem aliquid, minus eos laborum repudiandae, cumque debitis iusto omnis praesentium? Laborum placeat sit adipisci illum tempore maxime, esse qui quae? Molestias excepturi corporis similique doloribus. Esse vitae earum architecto nulla non dolores illum at perspiciatis quod, et deleniti cupiditate reiciendis harum facere, delectus eum commodi soluta distinctio sit repudiandae possimus sunt. Ipsum, rem.</p>
+
+                            <a href="#" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
+                        </div>
+                    </div><!-- end of blog wrapper -->
+                    <!-- blog-card -->
+                    <div class="blog-card" data-title="Eric B and Rakim">
+                        <div class="img-holder">
+                            <img src="assets/imgs/1980s/rakim.jpg" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                        </div>
+                        <div class="content-holder">
+                            <h4 class="title">Eric B and Rakim</h4>
+
+                            <p class="post-details">
+                                <a href="#">By: Admin</a>
+                                <a href="#"><i class="ti-heart text-danger"></i> 431</a>
+                                <a href="#"><i class="ti-comment"></i> 312</a>
+                            </p>
+                            
+                            <p> consectetur adipisicing elit. Impedit excepturi laborum enim, vitae ipsam atque eum, ad iusto consequuntur voluptas, esse doloribus. Perferendis porro quisquam vitae exercitationem aliquid, minus eos laborum repudiandae, cumque debitis iusto omnis praesentium? Laborum placeat sit adipisci illum tempore maxime, esse qui quae? Molestias excepturi corporis similique doloribus. Esse vitae earum architecto nulla non dolores illum at perspiciatis quod, et deleniti cupiditate reiciendis harum facere, delectus eum commodi soluta distinctio sit repudiandae possimus sunt. Ipsum, rem.</p>
+
+                            <a href="#" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
+                        </div>
+                    </div><!-- end of blog wrapper -->
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </section>
+    <!-- END OF BLOG LATEST NEWS-->
+
+    <!-- <script>
+        document.getElementById('search').addEventListener('input', function(e) {
+            var searchTerm = e.target.value.toLowerCase();
+            var blogCards = document.querySelectorAll('.blog-card');
+    
+            blogCards.forEach(function(card) {
+                var title = card.querySelector('.title').innerText.toLowerCase();
+    
+                if (title.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script> -->
+
+
+    <section class="section bg-custom-gray" id="portfolio">
+    </section>
+
+
+    <!-- <style>
+        .porto {
+            margin-left: 80px;
+        }
+    </style> -->
+
+
+
+    <br>
+    <br>
+
+
+
+    
+
+    <hr>
+    <br>
+    <br>
+
+
+
+    <div class="section contact" id="contact">
+        <div id="map" class="map"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="contact-form-card">
+                        <h4 class="contact-title">Send a message</h4>
+                        <form action="">
+                            <div class="form-group">
+                                <input  class="form-control" type="text" placeholder="Name *" required>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="email" placeholder="Email *" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" id=" placeholder="Message *" rows="7" required></textarea>
+                            </div>
+                            <div class="form-group ">
+                                <button type="submit" class="form-control btn btn-primary" >Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-info-card">
+                        <h4 class="contact-title">Get in touch</h4>
+                        <div class="row mb-2">
+                            <div class="col-1 pt-1 mr-1">
+                                <i class="ti-mobile icon-md"></i>
+                            </div>
+                            <div class="col-10 ">
+                                <h6 class="d-inline">Phone : <br> <span class="text-muted">+ (540) 628-1677</span></h6>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-1 pt-1 mr-1">
+                                <i class="ti-map-alt icon-md"></i>
+                            </div>
+                            <div class="col-10">
+                                <h6 class="d-inline">Address :<br> <span class="text-muted">2770 Candler Court, Volusia County</span></h6>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-1 pt-1 mr-1">
+                                <i class="ti-envelope icon-md"></i>
+                            </div>
+                            <div class="col-10">
+                                <h6 class="d-inline">Email :<br> <span class="text-muted">samcookshiphop@gmail.com</span></h6>
+                            </div>
+                        </div>
+                        <ul class="social-icons pt-4">
+                            <li class="social-item"><a class="social-link text-dark" href="#"><i class="ti-facebook" aria-hidden="true"></i></a></li>
+                            <li class="social-item"><a class="social-link text-dark" href="#"><i class="ti-twitter" aria-hidden="true"></i></a></li>
+                            <li class="social-item"><a class="social-link text-dark" href="#"><i class="ti-google" aria-hidden="true"></i></a></li>
+                            <li class="social-item"><a class="social-link text-dark" href="#"><i class="ti-instagram" aria-hidden="true"></i></a></li>
+                            <li class="social-item"><a class="social-link text-dark" href="#"><i class="ti-github" aria-hidden="true"></i></a></li>
+                        </ul> 
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer class="footer py-3">
+        <div class="container">
+            <p class="small mb-0 text-light">
+                &copy; <script>document.write(new Date().getFullYear())</script> Created With <i class="ti-heart text-danger"></i> By <a href="http://devcrud.com" target="_blank"><span class="text-danger" title="Bootstrap 4 Themes and Dashboards">DevCRUD</span></a> 
+            </p>
+        </div>
+    </footer>
+
+
+    	<!-- core  -->
+        <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+        <!-- <script>
+            // Function to generate table rows based on song data
+            function generateTableRows(data) {
+    
+    
+    
+    
+              var rows = '';
+          
+              data.forEach(function(song) {
+                var linkedLyrics = song['Linked Lyrics'] ? `<a href="${song['Linked Lyrics']}" target="_blank">Lyrics</a>` : 'N/A';
+          
+                rows += `
+                  <tr>
+                    <td>${song.artist}</td>
+                    <td>${song.Song}</td>
+                    <td>${song['Reason of Selection']}</td>
+                    <td>${song['Socially Conscious']}</td>
+                    <td>${song['Culturally Significant']}</td>
+                    <td>${song.Keywords.join(', ')}</td>
+                    <td>${song['Overall Theme']}</td>
+                    <td>${linkedLyrics}</td>
+                  </tr>
+                `;
+              });
+          
+              return rows;
+            }
+          
+            // Function to populate the table with song data
+            function populateTable() {
+              var songTableBody = $('#songTableBody');
+              songTableBody.empty(); // Clear existing table rows
+          
+              var sortedData = song_data.sam_songs; // Retrieve data from the global variable
+          
+              // Generate table rows
+              var rows = generateTableRows(sortedData);
+              songTableBody.append(rows);
+            }
+          
+            // Function to handle sorting when the sort buttons are clicked
+            function handleSort(e) {
+              var sortKey = $(this).data('sort-key');
+              var sortOrder = $(this).data('sort-order');
+          
+              // Sort the data based on the selected sort key and order
+              var sortedData = song_data.sam_songs.sort(function(a, b) {
+                var aValue = a[sortKey];
+                var bValue = b[sortKey];
+          
+                if (sortOrder === 'asc') {
+                  return aValue.localeCompare(bValue);
+                } else {
+                  return bValue.localeCompare(aValue);
+                } 
+              });
+          
+              // Update the sort order for the next click
+              $(this).data('sort-order', sortOrder === 'asc' ? 'desc' : 'asc');
+          
+              // Regenerate the table rows with the sorted data
+              var rows = generateTableRows(sortedData);
+              $('#songTableBody').html(rows);
+            }
+          
+            // Attach event handlers to the sort buttons
+            $(document).on('click', '.sort-btn', handleSort);
+          
+            // Call the function to populate the table on page load
+            $(document).ready(function() {
+              populateTable();
+            });
+    
+    
+            function filterTable() {
+                var input = $('#searchInput').val();
+                var searchMode = $("input[name='searchMode']:checked").val();
+                var words = input.split(/\s+/).filter(function(word) {
+                    return word.length > 0;
+                });
+            
+                var filteredData = song_data.sam_songs.filter(function(song) {
+                    var allText = Object.values(song).join(' ').toLowerCase();
+                    
+                    if (searchMode === 'all') {
+                        return words.every(function(word) {
+                            return allText.includes(word.toLowerCase());
+                        });
+                    } else {
+                        return words.some(function(word) {
+                            return allText.includes(word.toLowerCase());
+                        });
+                    }
+                });
+            
+                var rows = generateTableRows(filteredData);
+                $('#songTableBody').html(rows);
+            }
+            
+            $('#searchInput').on('input', filterTable);
+            $("input[name='searchMode']").on('change', filterTable);
+            
+        </script>  -->
+
+
+
+            <script>
+                // Function to generate table rows based on song data
+                function generateTableRows(data) {
+        
+        
+        
+        
+                  var rows = '';
+              
+                  data.forEach(function(song) {
+                    var linkedLyrics = song['Linked Lyrics'] ? `<a href="<span class="math-inline">\{song\[\'Linked Lyrics\'\]\}" target\="\_blank"\>Lyrics</a\>\` \: \'N/A\';
+        rows \+\= \`
+        <tr\>
+        <td\></span>{song.artist}</td>
+                        <td><span class="math-inline">\{song\.Song\}</td\>
+        <td\></span>{song['Reason of Selection']}</td>
+                        <td><span class="math-inline">\{song\[\'Socially Conscious\'\]\}</td\>
+        <td\></span>{song['Culturally Significant']}</td>
+                        <td><span class="math-inline">\{song\.Keywords\.join\(\', \'\)\}</td\>
+        <td\></span>{song['Overall Theme']}</td>
+                        <td>${linkedLyrics}</td>
+                      </tr>
+                    `;
+                  });
+              
+                  return rows;
+                }
+              
+                // Function to populate the table with song data
+                function populateTable() {
+                  var songTableBody = $('#songTableBody');
+                  songTableBody.empty(); // Clear existing table rows
+              
+                  var sortedData = song_data.sam_songs; // Retrieve data from the global variable
+              
+                  // Generate table rows
+                  var rows = generateTableRows(sortedData);
+                  songTableBody.append(rows);
+                }
+              
+                // Function to handle sorting when the sort buttons are clicked
+                function handleSort(e) {
+                  var sortKey = $(this).data('sort-key');
+                  var sortOrder = $(this).data('sort-order');
+              
+                  // Sort the data based on the selected sort key and order
+                  var sortedData = song_data.sam_songs.sort(function(a, b) {
+                    var aValue = a[sortKey];
+                    var bValue = b[sortKey];
+              
+                    if (sortOrder === 'asc') {
+                      return aValue < bValue ? -1 : aValue > bValue ? 1 : 0;
+                    } else {
+                      return aValue > bValue ? -1 : aValue < bValue ? 1 : 0;
+                    } 
+                  });
+              
+                  // Update the sort order for the next click
+                  $(this).data('sort-order', sortOrder === 'asc' ? 'desc' : 'asc');
+              
+                  // Regenerate the table rows with the sorted data
+                  var rows = generateTableRows(sortedData);
+                  $('#songTableBody').html(rows);
+                }
+              
+                // Attach event handlers to the sort buttons
+                $(document).on('click', '.sort-btn', handleSort);
+              
+                // Call the function to populate the table on page load
+                $(document).ready(function() {
+                  populateTable();
+                });
+        
+        
+                function filterTable() {
+                    var input = $('#searchInput').val();
+                    var searchMode = $("input[name='searchMode']:checked").val();
+                    var words = input.split(/\s+/).filter(function(word) {
+                        return word.length > 0;
+                    });
+                
+                    var filteredData = song_data.sam_songs.filter(function(song) {
+                        var allText = Object.values(song).join(' ').toLowerCase();
+                        
+                        if (searchMode === 'all') {
+                            return words.every(function(word) {
+                                return allText.includes(word.toLowerCase());
+                            });
+                        } else {
+                            return words.some(function(word) {
+                                return allText.includes(word.toLowerCase());
+                            });
+                        }
+                    });
+                
+                    var rows = generateTableRows(filteredData);
+                    $('#songTableBody').html(rows);
+                }
+                
+                $('#searchInput').on('input', filterTable);
+                $("input[name='searchMode']").on('change', filterTable);
+                
+                /* Your updated code here */
+                $(document).on('click', '.sort-btn', function() {
+                  var sortOrder = $(this).data('sort-order');
+                });
+        
+        </script>
+
+
+        <script>
+            // Function to filter data based on the search input
+            function filterData() {
+                var searchText = $('#searchBox').val().trim().toLowerCase();
+                var searchType = $('input[name="searchType"]:checked').val();
+                var filteredData = song_data.sam_songs.slice(); // Clone the original data
+            
+                if (searchText) {
+                var searchWords = searchText.split(/\s+/);
+            
+                filteredData = filteredData.filter(function(song) {
+                    var songString = JSON.stringify(song).toLowerCase();
+            
+                    if (searchType === 'all') {
+                    return searchWords.every(function(word) {
+                        return songString.indexOf(word) !== -1;
+                    });
+                    } else {
+                    return searchWords.some(function(word) {
+                        return songString.indexOf(word) !== -1;
+                    });
+                    }
+                });
+                }
+            
+                return filteredData;
+            }
+            
+            // Modified populateTable function
+            function populateTable() {
+                var songTableBody = $('#songTableBody');
+                songTableBody.empty(); // Clear existing table rows
+            
+                var filteredData = filterData(); // Apply filtering based on search input
+            
+                // Generate table rows
+                var rows = generateTableRows(filteredData);
+                songTableBody.append(rows);
+            
+                // Update row count label
+                $('#rowCount').text(filteredData.length);
+            }
+            
+            // Modified handleSort function
+            function handleSort(e) {
+                var sortKey = $(this).data('sort-key');
+                var sortOrder = $(this).data('sort-order');
+                var filteredData = filterData(); // Apply filtering based on search input
+            
+                // Sort the data based on the selected sort key and order
+                filteredData.sort(function(a, b) {
+                var aValue = a[sortKey];
+                var bValue = b[sortKey];
+            
+                if (sortOrder === 'asc') {
+                    return aValue.localeCompare(bValue);
+                } else {
+                    return bValue.localeCompare(aValue);
+                }
+                });
+            
+                // Update the sort order for the next click
+                $(this).data('sort-order', sortOrder === 'asc' ? 'desc' : 'asc');
+            
+                // Regenerate the table rows with the sorted data
+                var rows = generateTableRows(filteredData);
+                $('#songTableBody').html(rows);
+            }
+            
+            // Add event listeners for search functionality
+            $(document).on('input', '#searchBox', populateTable);
+            $(document).on('change', 'input[name="searchType"]', populateTable);
+            
+            // Existing code
+            $(document).on('click', '.sort-btn', handleSort);
+            
+            // Existing code
+            $(document).ready(function() {
+                populateTable();
+            });
+        </script>
+
+
+        <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+    <!-- bootstrap 3 affix -->
+    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- Isotope  -->
+    <script src="assets/vendors/isotope/isotope.pkgd.js"></script>
+    
+    <!-- Google mpas -->
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"></script> -->
+
+    <!-- JohnDoe js -->
+    <script src="assets/js/johndoe.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+          console.log("DOM fully loaded and parsed");
+          console.log("THIS IS JOHN DOES");
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+
+
+
+    <!-- Add the following script at the end of the body tag -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
+</html>
