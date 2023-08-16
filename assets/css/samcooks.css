@@ -1,0 +1,233 @@
+#songtable {
+    margin-right: 3%;
+    margin-left: 3%;
+}
+
+.table.table-bordered ::placeholder {
+    color: white;
+  }
+
+.form-control {
+    color: green;
+}
+
+.table-responsive {
+    height: 400px;
+}
+
+.ofy {
+    
+    width: 94%;
+    height: 100px;
+    overflow-y: scroll;
+}
+
+/* Sticky Header Styles */
+.song-sticky-header {
+    position: sticky;
+    top: 0;
+    background-color: #f8f9fa;
+}
+
+.song-sticky-header th {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+/* Centered Table Styles */
+.centered-table {
+    margin-left: 5px;
+    margin-right: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+#randochart {
+    display: flex;
+    justify-content: center;
+}
+
+/* .dropdown-menu-horizontal {
+    display: flex;
+    flex-direction: row;
+    top: 100%;
+    left: 0;
+    min-width: 10rem;
+  } */
+
+ /* .dropdown-item {
+    display: block;
+    width: 100%;
+  }  */
+
+/* Lyrics List */
+.lyrics-container {
+    height: 300px;
+    overflow-y: auto    ;
+  }
+  
+  .lyrics-container ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .lyrics-container li {
+    margin-bottom: 10px;
+  }
+  
+  .lyrics-container a {
+    display: block;
+    text-decoration: none;
+  }
+
+
+
+  /*   
+   .andale-overlay
+
+  */
+  /* Lyrics List */
+/* .andale-overlay {
+    height: 300px;
+    overflow-y: scroll;
+  }
+  
+  .andale-overlay ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .andale-overlay li {
+    margin-bottom: 10px;
+  }
+  
+  .andale-overlay a {
+    display: block;
+    text-decoration: none;
+  } */
+
+  #bigblue {
+    height: 400px;
+    overflow-y: auto;
+  }
+
+  .bigblue {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  .andale-overlay {
+    height: 300px;
+    overflow-y: auto; 
+    }
+
+    .andale-overlay ul {
+    list-style-type: none;
+    padding-left: 0;
+    }
+
+  .forBlueOverlay {
+    height: 580px;
+    overflow-y: auto;
+
+    margin-right: 40px;
+    margin-left: 40px;
+  }
+
+    .andale-overlay li {
+    margin-bottom: 10px;
+    }  
+
+    .andale-overlay a {
+    display: block;  
+    text-decoration: none;   
+    }
+  
+  .embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+  
+  .embed-container iframe,
+  .embed-container object,
+  .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  
+
+  /* rakim */
+  #rakim {
+    background-image: url('../../assets/imgs/ther.jpg');
+    /* Additional background properties can be added if needed */
+  }
+
+  #resume {
+    background-image: url('../../assets/imgs/lh.jpg');
+    
+
+
+  }
+
+  #artist::placeholder {
+    color: white; 
+}
+  
+/*
+    RESEARCH AREA
+*/
+  #researchdivcard {
+    opacity: 0.95; /* 70% transparent */
+  }
+
+
+
+/* 
+    statistics area
+*/
+
+
+.bothlightdark {
+    text-shadow: 2px 2px 1px #000;
+    filter: drop-shadow(2px 2px 1px #000);  
+    color: #fff;
+}
+
+.mirror{
+    display: inline-block; 
+    font-size: 30px;
+
+    -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
+    -moz-transform: matrix(-1, 0, 0, 1, 0, 0);
+    -o-transform: matrix(-1, 0, 0, 1, 0, 0);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+
+
+#thedropdowneight {
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+.allartistsoverlay {
+  height: 420px;
+  overflow-y: auto;
+}
+
+
+#twenty1savagechats {
+  height: 200px;
+  overflow-y: auto;
+}
+
+
+
+
