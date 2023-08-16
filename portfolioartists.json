@@ -1,0 +1,189 @@
+{
+    "name": "Run DMC",
+    "related_artists": [
+    {
+        "class": "new advertising branding",
+        "imgSrc": "assets/imgs/rundmc2.png",
+        "imgAlt": "Download free bootstrap 4 admin dashboard, free bootstrap 4 templates",
+        "popupImgSrc": "assets/imgs/web-1.jpg",
+        "title": "Run DMC",
+        "subtitle": "Proud To Be Black, Hard Times",
+        "link": "https://www.blackpast.org/african-american-history/groups-organizations-african-american-history/run-d-m-c/"
+    },
+    {
+        "class": "new",
+        "imgSrc": "assets/imgs/1980s/Kurtis Blow.png",
+        "imgAlt": "Download free bootstrap 4 admin dashboard, free bootstrap 4 templates",
+        "popupImgSrc": "assets/imgs/1980s/Kurtis Blow.png",
+        "title": "Kurtis Blow",
+        "subtitle": "Were in the film Krush Groove alongside Run DMC"
+    },
+    {
+        "class": "new branding",
+        "imgSrc": "assets/imgs/1980s/Fat Boys.png",
+        "imgAlt": "Download free bootstrap 4 admin dashboard, free bootstrap 4 templates",
+        "popupImgSrc": "assets/imgs/1980s/Fat Boys.png",
+        "title": "Fat Boys",
+        "subtitle": "Were also in the film Krush Groove"
+    },
+    {
+        "class": "new advertising branding",
+        "imgSrc": "assets/imgs/1980s/LL Cool J.jpg",
+        "imgAlt": "Download free bootstrap 4 admin dashboard, free bootstrap 4 templates",
+        "popupImgSrc": "assets/imgs/1980s/LL Cool J.jpg",
+        "title": "LL Cool J",
+        "subtitle": "Were also in the film Krush Groove"
+    },
+    {
+        "class": "new advertising branding web",
+        "imgSrc": "assets/imgs/1980s/Beastie Boys.png",
+        "imgAlt": "Download free bootstrap 4 admin dashboard, free bootstrap 4 templates",
+        "popupImgSrc": "assets/imgs/1980s/Beastie Boys.png",
+        "title": "Beastie Boys",
+        "subtitle": "Were also in the film Krush Groove"
+    },
+    {
+        "class": "new",
+        "imgSrc": "assets/imgs/1980s/Slick Rick.jpg",
+        "imgAlt": "Download free bootstrap 4 admin dashboard, free bootstrap 4 templates",
+        "popupImgSrc": "assets/imgs/1980s/Slick Rick.jpg",
+        "title": "Slick Rick",
+        "subtitle": "Co-starred in the film Tougher Than Leather"
+    },
+    {
+        "class": "advertising",
+        "imgSrc": "assets/imgs/1990s/Pete Rock and CL Smooth.jpg",
+        "imgAlt": "Download free bootstrap 4 admin dashboard, free bootstrap 4 templates",
+        "popupImgSrc": "https://lasvegasweekly.com/ae/music/2018/apr/26/iconic-rapper-rakim-talks-reuniting-with-eric-b/",
+        "title": "Pete Rock and C.L. Smooth",
+        "subtitle": "Featured on last album"
+    },
+    {
+        "class": "advertising",
+        "imgSrc": "assets/imgs/1980s/Tribe Called Quest.png",
+        "imgAlt": "Download free bootstrap 4 admin dashboard, free bootstrap 4 templates",
+        "popupImgSrc": "assets/imgs/1980s/Tribe Called Quest.png",
+        "title": "Tribe Called Quest",
+        "subtitle": "Featured on Run DMC's last album"
+    },
+    {
+        "class": "web",
+        "imgSrc": "assets/imgs/2010+/Denzel Curry.jpg",
+        "imgAlt": "Download free bootstrap 4 admin dashboard, free bootstrap 4 templates",
+        "popupImgSrc": "assets/imgs/2010+/Denzel Curry.jpg",
+        "title": "Denzel Curry",
+        "subtitle": "Sampled from Run DMC"
+    },
+    {
+        "class": "branding",
+        "imgSrc": "assets/imgs/2000s/Wiz Khalifa.png",
+        "imgAlt": "Download free bootstrap 4 admin dashboard, free bootstrap 4 templates",
+        "popupImgSrc": "assets/imgs/2000s/Wiz Khalifa.png",
+        "title": "Wiz Khalifa",
+        "subtitle": "Sampled from Run DMC"
+    }
+    ]
+},
+{
+    "name": "Wiz Khalifa",
+    "related_artists": [
+    {
+        "class": "branding web",
+        "imgSrc": "assets/imgs/2000s/Wiz Khalifa.png",
+        "imgAlt": "Download free bootstrap 4 admin dashboard, free bootstrap 4 templates",
+        "popupImgSrc": "assets/imgs/2000s/Wiz Khalifa.png",
+        "title": "Wiz Khalifa",
+        "subtitle": "Say Yeah"                        
+    },
+    {
+        "class": "new advertising branding",
+        "imgSrc": "assets/imgs/rundmc2.png",
+        "imgAlt": "Download free bootstrap 4 admin dashboard, free bootstrap 4 templates",
+        "popupImgSrc": "assets/imgs/web-1.jpg",
+        "title": "Run DMC",
+        "subtitle": "Sampled by Wiz Khalifa"
+    }
+    ]
+},
+{
+    "name": "21 Savage",
+    "related_artists": [
+    {
+        "class": "branding web",
+        "imgSrc": "assets/imgs/2010+/21 Savage.jpg",
+        "imgAlt": "Download free bootstrap 4 admin dashboard, free bootstrap 4 templates",
+        "popupImgSrc": "assets/imgs/2010+/21 Savage.jpg",
+        "title": "21 Savage",
+        "subtitle": "A Lot"
+    },
+    {
+        "class": "branding web",
+        "imgSrc": "assets/imgs/2000s/J-Cole.jpeg",
+        "imgAlt": "Download free bootstrap 4 admin dashboard, free bootstrap 4 templates",
+        "popupImgSrc": "assets/imgs/2000s/J-Cole.jpeg",
+        "title": "J-Cole",
+        "subtitle": "Featured on 'A Lot' with 21 Savage"
+    },
+    {
+        "class": "branding",
+        "imgSrc": "assets/imgs/1980s/KRS-One.jpg",
+        "imgAlt": "Download free bootstrap 4 admin dashboard, free bootstrap 4 templates",
+        "popupImgSrc": "assets/imgs/1980s/KRS-One.jpg",
+        "title": "KRS-One",
+        "subtitle": "KRS made a non SC song in 2007 titled 'Nothing New'"
+    },
+    {
+        "class": "branding",
+        "imgSrc": "assets/imgs/1990s/Jay-Z.jpg",
+        "imgAlt": "Download free bootstrap 4 admin dashboard, free bootstrap 4 templates",
+        "popupImgSrc": "assets/imgs/1990s/Jay-Z.jpg",
+        "title": "KRS-One",
+        "subtitle": "Jay-Z samples 2pac: 'Feed my Family' same phrase used by 21 Savage"
+    }
+    ]
+},
+{
+    "name": "Tupac Shakur",
+    "related_artists": [
+    {
+        "class": "web",
+        "imgSrc": "assets/imgs/2000s/J-Cole.jpeg",
+        "imgAlt": "Download free bootstrap 4 admin dashboard, free bootstrap 4 templates",
+        "popupImgSrc": "assets/imgs/2000s/J-Cole.jpeg",
+        "title": "J-Cole",
+        "subtitle": "Similar theme to Tupac's song 'Changes'; J. Cole's Change also talks about societal issues and the desire for change"
+    },
+    {
+        "class": "new advertising branding",
+        "imgSrc": "assets/imgs/2000s/Public Enemy.jpg",
+        "imgAlt": "Download free bootstrap 4 admin dashboard, free bootstrap 4 templates",
+        "popupImgSrc": "assets/imgs/2000s/Public Enemy.jpg",
+        "title": "Public Enemy",
+        "subtitle": "Shared keyword and theme; Public Enemy has addressed similar themes of activism and protest in their music"
+    },
+    {
+        "class": "branding",
+        "imgSrc": "assets/imgs/2000s/Kendrick Lamar.jpg",
+        "imgAlt": "Download free bootstrap 4 admin dashboard, free bootstrap 4 templates",
+        "popupImgSrc": "assets/imgs/2000s/Kendrick Lamar.jpg",
+        "title": "Kendrick Lamar",
+        "subtitle": "Similar theme; Kendrick's 'Alright' also empowers and provides a message of hope, similar to Tupac's 'Keep Ya Head Up'"
+    },
+    {
+        "class": "branding",
+        "imgSrc": "assets/imgs/1990s/Notorious BIG.jpg",
+        "imgAlt": "Download free bootstrap 4 admin dashboard, free bootstrap 4 templates",
+        "popupImgSrc": "assets/imgs/1990s/Notorious BIG.jpg",
+        "title": "Notorious BIG",
+        "subtitle": "Shared theme; Biggie's 'Everyday Struggle' discusses similar struggles and pain"
+    },
+    {
+        "class": "advertising branding",
+        "imgSrc": "assets/imgs/1990s/Nas.jpg",
+        "imgAlt": "Download free bootstrap 4 admin dashboard, free bootstrap 4 templates",
+        "popupImgSrc": "assets/imgs/1990s/Nas.jpg",
+        "title": "Notorious BIG",
+        "subtitle": "Similar theme; Nas's 'I Can' and other tracks address racial inequality, similar to Tupac's 'White Man'z World'"
+    }
+    ]
+}
